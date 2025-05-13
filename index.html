@@ -7,7 +7,7 @@
     <meta name="keywords" content="Northern Beaches landscaping, sustainable gardens, eco-friendly landscaping, Twisted Landscapes, Sydney">
     <meta property="og:title" content="Twisted Landscapes | Northern Beaches Sustainable Landscaping">
     <meta property="og:description" content="Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
-    <meta property="og:image" content="images/hero.jpg">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
     <meta property="og:url" content="https://thachozanjuan.github.io/TwistedLandScape/">
     <meta name="twitter:card" content="summary_large_image">
     <title>Twisted Landscapes | Northern Beaches Sustainable Landscaping</title>
@@ -216,8 +216,11 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative bg-cover bg-center h-screen text-white flex items-center">
-        <!-- Local hero image -->
-        <img src="images/hero.jpg" alt="Lush Northern Beaches garden with native plants" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Hero image with fallback -->
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+             onerror="this.onerror=null; this.src='images/hero.jpg'" 
+             alt="Lush Northern Beaches garden with native plants" 
+             class="absolute inset-0 w-full h-full object-cover">
         <div class="container mx-auto px-6 text-center fade-in relative z-10">
             <h1 class="text-5xl font-bold mb-4">Twisted Landscapes</h1>
             <p class="text-xl mb-6">Crafting Serenity, Naturally – Northern Beaches Style</p>
@@ -235,7 +238,6 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-6 md:mb-0">
                     <!-- Local image -->
-                    <!-- Replace with Sean's photo: <img src="images/about_team.jpg" alt="Landscaping team shaping a Manly garden with native plants"> -->
                     <img src="images/about_team.jpg" alt="Landscaping team shaping a Manly garden with native plants" class="rounded-lg shadow-md" loading="lazy">
                 </div>
                 <div class="md:w-1/2 md:pl-8">
@@ -291,8 +293,6 @@
             <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">Our Portfolio</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="images/manly_backyard.jpg">
-                    <!-- Local image -->
-                    <!-- Replace with Sean's photo: <img src="images/manly_backyard.jpg" alt="Manly backyard with sandstone paving and grass trees"> -->
                     <img src="images/manly_backyard.jpg" alt="Manly backyard with sandstone paving and grass trees" class="w-full h-64 object-cover" loading="lazy">
                     <div class="p-4 bg-[var(--bg-darkslate)] text-white">
                         <h3 class="text-lg font-semibold">Manly Backyard</h3>
@@ -300,8 +300,6 @@
                     </div>
                 </div>
                 <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="images/seaforth_garden.jpg">
-                    <!-- Local image -->
-                    <!-- Replace with Sean's photo: <img src="images/seaforth_garden.jpg" alt="Seaforth zen garden with recycled sleepers and native grasses"> -->
                     <img src="images/seaforth_garden.jpg" alt="Seaforth zen garden with recycled sleepers and native grasses" class="w-full h-64 object-cover" loading="lazy">
                     <div class="p-4 bg-[var(--bg-darkslate)] text-white">
                         <h3 class="text-lg font-semibold">Seaforth Zen Garden</h3>
@@ -309,8 +307,6 @@
                     </div>
                 </div>
                 <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="images/placeholder_garden.jpg">
-                    <!-- Local image -->
-                    <!-- Replace with Sean's photo: <img src="images/placeholder_garden.jpg" alt="Placeholder Northern Beaches garden"> -->
                     <img src="images/placeholder_garden.jpg" alt="Placeholder Northern Beaches garden" class="w-full h-64 object-cover" loading="lazy">
                     <div class="p-4 bg-[var(--bg-darkslate)] text-white">
                         <h3 class="text-lg font-semibold">Northern Beaches Project</h3>

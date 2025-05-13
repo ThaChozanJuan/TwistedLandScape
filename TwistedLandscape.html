@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Twisted Landscapes - Sustainable landscaping services in Sydney. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
-    <meta name="keywords" content="Sydney landscaping, sustainable gardens, eco-friendly landscaping, Twisted Landscapes">
-    <meta property="og:title" content="Twisted Landscapes | Sydney Sustainable Landscaping">
-    <meta property="og:description" content="Sustainable landscaping services in Sydney. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1621277224630-1b8be66cd0eb?auto=format&fit=crop&w=1920&q=80">
+    <meta name="description" content="Twisted Landscapes - Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
+    <meta name="keywords" content="Northern Beaches landscaping, sustainable gardens, eco-friendly landscaping, Twisted Landscapes, Sydney">
+    <meta property="og:title" content="Twisted Landscapes | Northern Beaches Sustainable Landscaping">
+    <meta property="og:description" content="Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
     <meta property="og:url" content="https://thachozanjuan.github.io/Twisted-Landscapes/">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Twisted Landscapes | Sydney Sustainable Landscaping</title>
+    <title>Twisted Landscapes | Northern Beaches Sustainable Landscaping</title>
     <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com/3.4.1"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -20,8 +20,8 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Twisted Landscapes",
-      "description": "Sustainable landscaping services in Sydney.",
-      "telephone": "(02) 9876 5432",
+      "description": "Sustainable landscaping services in Sydney’s Northern Beaches.",
+      "telephone": "0412 606 907",
       "email": "info@twistedlandscapes.com.au",
       "address": {
         "@type": "PostalAddress",
@@ -33,6 +33,14 @@
     }
     </script>
     <style>
+        /* Custom color variables */
+        :root {
+            --primary-teal: #1A4D5F;
+            --secondary-beige: #D9C2A6;
+            --accent-teal: #4DA8B8;
+            --bg-offwhite: #F5F5F5;
+            --bg-darkslate: #2D3748;
+        }
         /* Custom styles for gallery, animations, and lightbox */
         .gallery-img {
             transition: transform 0.3s ease;
@@ -68,7 +76,7 @@
         }
         .lightbox-close {
             position: absolute;
-            top:  20px;
+            top: 20px;
             right: 20px;
             color: white;
             font-size: 30px;
@@ -103,7 +111,7 @@
             .mobile-menu ul {
                 display: none;
                 flex-direction: column;
-                background: #1a3c34;
+                background: var(--primary-teal);
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -114,22 +122,79 @@
                 display: flex;
             }
         }
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-teal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 0.5s ease;
+        }
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .preloader-spinner {
+            border: 4px solid #fff;
+            border-top: 4px solid var(--secondary-beige);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #9B59B6;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-[var(--bg-offwhite)] font-sans">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
-    <header class="bg-green-800 text-white sticky top-0 z-50 shadow-md">
+    <header class="bg-[var(--primary-teal)] text-white sticky top-0 z-50 shadow-md">
         <nav class="container mx-auto flex items-center justify-between py-4 px-6" role="navigation" aria-label="Main navigation">
             <div class="text-2xl font-bold">Twisted Landscapes</div>
             <div class="desktop-menu">
                 <ul class="flex space-x-6">
-                    <li><a href="#home" class="hover:text-green-300">Home</a></li>
-                    <li><a href="#about" class="hover:text-green-300">About</a></li>
-                    <li><a href="#services" class="hover:text-green-300">Services</a></li>
-                    <li><a href="#portfolio" class="hover:text-green-300">Portfolio</a></li>
-                    <li><a href="#testimonials" class="hover:text-green-300">Testimonials</a></li>
-                    <li><a href="#blog" class="hover:text-green-300">Blog</a></li>
-                    <li><a href="#contact" class="hover:text-green-300">Contact</a></li>
+                    <li><a href="#home" class="hover:text-[var(--accent-teal)]">Home</a></li>
+                    <li><a href="#about" class="hover:text-[var(--accent-teal)]">About</a></li>
+                    <li><a href="#services" class="hover:text-[var(--accent-teal)]">Services</a></li>
+                    <li><a href="#portfolio" class="hover:text-[var(--accent-teal)]">Portfolio</a></li>
+                    <li><a href="#testimonials" class="hover:text-[var(--accent-teal)]">Testimonials</a></li>
+                    <li><a href="#blog" class="hover:text-[var(--accent-teal)]">Blog</a></li>
+                    <li><a href="#contact" class="hover:text-[var(--accent-teal)]">Contact</a></li>
                 </ul>
             </div>
             <div class="mobile-menu">
@@ -137,13 +202,13 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="mobile-menu-list">
-                    <li><a href="#home" class="block py-2 hover:text-green-300">Home</a></li>
-                    <li><a href="#about" class="block py-2 hover:text-green-300">About</a></li>
-                    <li><a href="#services" class="block py-2 hover:text-green-300">Services</a></li>
-                    <li><a href="#portfolio" class="block py-2 hover:text-green-300">Portfolio</a></li>
-                    <li><a href="#testimonials" class="block py-2 hover:text-green-300">Testimonials</a></li>
-                    <li><a href="#blog" class="block py-2 hover:text-green-300">Blog</a></li>
-                    <li><a href="#contact" class="block py-2 hover:text-green-300">Contact</a></li>
+                    <li><a href="#home" class="block py-2 hover:text-[var(--accent-teal)]">Home</a></li>
+                    <li><a href="#about" class="block py-2 hover:text-[var(--accent-teal)]">About</a></li>
+                    <li><a href="#services" class="block py-2 hover:text-[var(--accent-teal)]">Services</a></li>
+                    <li><a href="#portfolio" class="block py-2 hover:text-[var(--accent-teal)]">Portfolio</a></li>
+                    <li><a href="#testimonials" class="block py-2 hover:text-[var(--accent-teal)]">Testimonials</a></li>
+                    <li><a href="#blog" class="block py-2 hover:text-[var(--accent-teal)]">Blog</a></li>
+                    <li><a href="#contact" class="block py-2 hover:text-[var(--accent-teal)]">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -151,51 +216,70 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative bg-cover bg-center h-screen text-white flex items-center">
-        <!-- Image: Modern Sydney garden with native plants and sandstone paving -->
-        <img src="https://images.unsplash.com/photo-1621277224630-1b8be66cd0eb?auto=format&fit=crop&w=1920&q=80" alt="Modern Sydney garden with native plants and sandstone paving" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Original hero image restored as per your preference -->
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Lush Northern Beaches garden with native plants" class="absolute inset-0 w-full h-full object-cover">
         <div class="container mx-auto px-6 text-center fade-in relative z-10">
-            <h1 class="text-5xl font-bold mb-4">Transform Your Outdoors with Twisted Landscapes</h1>
-            <p class="text-xl mb-6">Sustainable, creative landscaping solutions for Sydney homes and businesses.</p>
-            <a href="#contact" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 focus:ring-4 focus:ring-green-500">Get a Free Quote</a>
+            <h1 class="text-5xl font-bold mb-4">Twisted Landscapes</h1>
+            <p class="text-xl mb-6">Crafting Serenity, Naturally – Northern Beaches Style</p>
+            <div class="space-x-4">
+                <a href="#contact" class="bg-[var(--secondary-beige)] text-[var(--primary-teal)] px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:text-white focus:ring-4 focus:ring-[var(--accent-teal)]">Get a Free Quote</a>
+                <a href="#portfolio" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:border-[var(--accent-teal)] focus:ring-4 focus:ring-[var(--accent-teal)]">View Portfolio</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8">About Twisted Landscapes</h2>
+            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">About Twisted Landscapes</h2>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-6 md:mb-0">
-                    <!-- Image: Team working on a Sydney garden with native flora -->
-                    <img src="https://images.pexels.com/photos/7578890/pexels-photo-7578890.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Team working on a Sydney garden with native flora" class="rounded-lg shadow-md" loading="lazy">
+                    <!-- New image: Landscaping team shaping a Manly garden with native plants -->
+                    <!-- Replace with Sean's photo: <img src="images/about_team.jpg" alt="Landscaping team shaping a Manly garden with native plants"> -->
+                    <img src="https://images.unsplash.com/photo-1620246502579-a21a7eb99b57?auto=format&fit=crop&w=800&q=80" alt="Landscaping team shaping a Manly garden with native plants" class="rounded-lg shadow-md" loading="lazy">
                 </div>
                 <div class="md:w-1/2 md:pl-8">
-                    <p class="text-lg mb-4">Twisted Landscapes is a Sydney-based landscaping company dedicated to creating sustainable, beautiful outdoor spaces. Our team brings passion and expertise to every project, designing gardens that thrive in Sydney’s unique climate.</p>
-                    <p class="text-lg">We specialize in eco-friendly solutions, from native plant gardens to low-maintenance hardscapes, serving homeowners and businesses across Sydney’s Northern Beaches, Eastern Suburbs, and beyond. Let’s create your dream landscape!</p>
+                    <p class="text-lg mb-4">Twisted Landscapes, led by Sean Kellendonk, is a Northern Beaches-based landscaping company dedicated to creating sustainable, beautiful outdoor spaces. Our team brings passion and expertise to every project, designing gardens that thrive in Sydney’s coastal climate.</p>
+                    <p class="text-lg">We specialize in eco-friendly solutions, from native plant gardens to low-maintenance hardscapes, serving homeowners and businesses across Manly, Seaforth, Narrabeen, and beyond. Let’s create your dream landscape!</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-100">
+    <section id="services" class="py-16 bg-[var(--bg-offwhite)]">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
-                    <i class="fas fa-tree text-4xl text-green-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Sustainable Garden Design</h3>
-                    <p>Custom gardens with native, drought-tolerant plants tailored to Sydney’s climate.</p>
+            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lawn mowing service" class="w-full h-48 object-cover mb-2">
+                    <h3 class="text-xl font-semibold text-[#9B59B6]">Lawn Mowing</h3>
+                    <hr class="border-[#9B59B6] my-2">
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
-                    <i class="fas fa-hammer text-4xl text-green-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Hardscaping</h3>
-                    <p>Durable paving, decking, and retaining walls for stunning, low-maintenance spaces.</p>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Weed control service" class="w-full h-48 object-cover mb-2">
+                    <h3 class="text-xl font-semibold text-[#9B59B6]">Weed Control</h3>
+                    <hr class="border-[#9B59B6] my-2">
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
-                    <i class="fas fa-leaf text-4xl text-green-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Garden Maintenance</h3>
-                    <p>Expert care to keep your Sydney garden vibrant and healthy year-round.</p>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600585153490-416c8e4b7b8d?auto=format&fit=crop&w=400&q=80" alt="Driveway cleaning service" class="w-full h-48 object-cover mb-2">
+                    <h3 class="text-xl font-semibold text-[#9B59B6]">Driveway Cleaning</h3>
+                    <hr class="border-[#9B59B6] my-2">
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1591975958397-f3dc32ad2011?auto=format&fit=crop&w=400&q=80" alt="Hedge trimming service" class="w-full h-48 object-cover mb-2">
+                    <h3 class="text-xl font-semibold text-[#9B59B6]">Hedge Trimming</h3>
+                    <hr class="border-[#9B59B6] my-2">
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600585153490-416c8e4b7b8d?auto=format&fit=crop&w=400&q=80" alt="Retainer wall installation service" class="w-full h-48 object-cover mb-2">
+                    <h3 class="text-xl font-semibold text-[#9B59B6]">Retainer Wall Installation</h3>
+                    <hr class="border-[#9B59B6] my-2">
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Decking service" class="w-full h-48 object-cover mb-2">
+                    <h3 class="text-xl font-semibold text-[#9B59B6]">Decking Service</h3>
+                    <hr class="border-[#9B59B6] my-2">
                 </div>
             </div>
         </div>
@@ -204,30 +288,32 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8">Our Portfolio</h2>
+            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">Our Portfolio</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="https://images.unsplash.com/photo-1600585153490-416c8e4b7b8d?auto=format&fit=crop&w=800&q=80">
+                    <!-- Image: Manly backyard with sandstone paving and grass trees -->
+                    <!-- Replace with Sean's photo: <img src="images/manly_backyard.jpg" alt="Manly backyard with sandstone paving and grass trees"> -->
+                    <img src="https://images.unsplash.com/photo-1600585153490-416c8e4b7b8d?auto=format&fit=crop&w=800&q=80" alt="Manly backyard with sandstone paving and grass trees" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="p-4 bg-[var(--bg-darkslate)] text-white">
+                        <h3 class="text-lg font-semibold">Manly Backyard</h3>
+                        <p>Before: A plain lawn. After: A sleek backyard with grass trees and sandstone paving for a Manly home.</p>
+                    </div>
+                </div>
+                <!-- Removed Narrabeen image as per your request -->
                 <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="https://images.unsplash.com/photo-1591975958397-f3dc32ad2011?auto=format&fit=crop&w=800&q=80">
-                    <!-- Image: Modern Sydney backyard with sandstone paving and native plants -->
-                    <img src="https://images.unsplash.com/photo-1591975958397-f3dc32ad2011?auto=format&fit=crop&w=800&q=80" alt="Modern Sydney backyard with sandstone paving and native plants" class="w-full h-64 object-cover" loading="lazy">
-                    <div class="p-4 bg-gray-800 text-white">
-                        <h3 class="text-lg font-semibold">Modern Sydney Backyard</h3>
-                        <p>Before: A plain lawn. After: A sleek backyard with native plants and sandstone paving for an Inner West home.</p>
+                    <!-- Placeholder for Sean's photo: <img src="images/seaforth_garden.jpg" alt="Seaforth zen garden with recycled sleepers and native grasses"> -->
+                    <img src="https://images.unsplash.com/photo-1591975958397-f3dc32ad2011?auto=format&fit=crop&w=800&q=80" alt="Seaforth zen garden with recycled sleepers and native grasses" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="p-4 bg-[var(--bg-darkslate)] text-white">
+                        <h3 class="text-lg font-semibold">Seaforth Zen Garden</h3>
+                        <p>Before: Overgrown yard. After: A modern zen garden with recycled sleepers and native grasses for a Seaforth home.</p>
                     </div>
                 </div>
-                <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="https://images.pexels.com/photos/7578889/pexels-photo-7578889.jpeg?auto=compress&cs=tinysrgb&w=800">
-                    <!-- Image: Coastal eco garden with Australian natives -->
-                    <img src="https://images.pexels.com/photos/7578889/pexels-photo-7578889.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Coastal eco garden with Australian natives" class="w-full h-64 object-cover" loading="lazy">
-                    <div class="p-4 bg-gray-800 text-white">
-                        <h3 class="text-lg font-semibold">Coastal Eco Garden</h3>
-                        <p>Before: Bare lawn. After: A drought-tolerant garden with Australian natives for a Northern Beaches property.</p>
-                    </div>
-                </div>
-                <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="https://images.unsplash.com/photo-1590421604362-04b593d77090?auto=format&fit=crop&w=800&q=80">
-                    <!-- Image: Rustic coastal retreat with timber decking -->
-                    <img src="https://images.unsplash.com/photo-1590421604362-04b593d77090?auto=format&fit=crop&w=800&q=80" alt="Rustic coastal retreat with timber decking" class="w-full h-64 object-cover" loading="lazy">
-                    <div class="p-4 bg-gray-800 text-white">
-                        <h3 class="text-lg font-semibold">Coastal Retreat</h3>
-                        <p>Before: Overgrown yard. After: A sustainable, low-maintenance coastal garden with timber decking for an Eastern Suburbs home.</p>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="https://images.unsplash.com/photo-1600585153490-416c8e4b7b8d?auto=format&fit=crop&w=800&q=80">
+                    <!-- Placeholder for Sean's photo: <img src="images/placeholder_garden.jpg" alt="Placeholder Northern Beaches garden"> -->
+                    <img src="https://images.unsplash.com/photo-1600585153490-416c8e4b7b8d?auto=format&fit=crop&w=800&q=80" alt="Placeholder Northern Beaches garden" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="p-4 bg-[var(--bg-darkslate)] text-white">
+                        <h3 class="text-lg font-semibold">Northern Beaches Project</h3>
+                        <p>Before: Untended space. After: A transformed garden showcasing Northern Beaches style.</p>
                     </div>
                 </div>
             </div>
@@ -235,17 +321,17 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-gray-100">
+    <section id="testimonials" class="py-16 bg-[var(--bg-offwhite)]">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8">What Our Clients Say</h2>
+            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">What Our Clients Say</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-md fade-in">
-                    <p class="text-lg italic mb-4">"Twisted Landscapes created a stunning native garden for our home. Highly professional and eco-conscious!"</p>
+                    <p class="text-lg italic mb-4">"Sean and Twisted Landscapes created a stunning native garden for our home. Highly professional and eco-conscious!"</p>
                     <p class="font-semibold">– Emma R., Manly</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md fade-in">
                     <p class="text-lg italic mb-4">"Their team transformed our commercial property with a low-maintenance design. Exceptional service!"</p>
-                    <p class="font-semibold">– David K., Bondi</p>
+                    <p class="font-semibold">– David K., Narrabeen</p>
                 </div>
             </div>
         </div>
@@ -254,53 +340,57 @@
     <!-- Blog Section -->
     <section id="blog" class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8">Latest Insights</h2>
+            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">Latest Insights</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Top 5 Sustainable Landscaping Trends for Sydney</h3>
-                    <p class="mb-4">Explore eco-friendly designs thriving in Sydney’s climate.</p>
-                    <a href="#" class="text-green-600 hover:underline">Read More</a>
+                <div class="bg-[var(--bg-offwhite)] p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Top 5 Sustainable Landscaping Trends for Northern Beaches</h3>
+                    <p class="mb-4">Explore eco-friendly designs thriving in Sydney’s coastal climate.</p>
+                    <a href="#blog" class="text-[var(--primary-teal)] hover:underline">Read More</a>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <div class="bg-[var(--bg-offwhite)] p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold mb-2">Choosing Native Plants for Your Garden</h3>
-                    <p class="mb-4">Tips for selecting drought-tolerant plants for Sydney gardens.</p>
-                    <a href="#" class="text-green-600 hover:underline">Read More</a>
+                    <p class="mb-4">Tips for selecting drought-tolerant plants like kangaroo paw for Northern Beaches gardens.</p>
+                    <a href="#blog" class="text-[var(--primary-teal)] hover:underline">Read More</a>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <div class="bg-[var(--bg-offwhite)] p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold mb-2">Low-Maintenance Hardscaping Ideas</h3>
-                    <p class="mb-4">Create durable, beautiful outdoor spaces with minimal upkeep.</p>
-                    <a href="#" class="text-green-600 hover:underline">Read More</a>
+                    <p class="mb-4">Create durable, beautiful outdoor spaces with sandstone and timber.</p>
+                    <a href="#blog" class="text-[var(--primary-teal)] hover:underline">Read More</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-green-800 text-white">
+    <section id="contact" class="py-16 bg-[var(--primary-teal)] text-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-6 md:mb-0">
-                    <p class="text-lg mb-4">Ready to create your dream outdoor space? Contact Twisted Landscapes for a free consultation in Sydney!</p>
-                    <p><i class="fas fa-phone"></i> (02) 9876 5432</p>
+                    <p class="text-lg mb-4">Ready to create your dream outdoor space? Contact Sean Kellendonk at Twisted Landscapes for a free consultation in Sydney’s Northern Beaches!</p>
+                    <p><i class="fas fa-phone"></i> 0412 606 907</p>
                     <p><i class="fas fa-envelope"></i> info@twistedlandscapes.com.au</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Sydney, NSW</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Northern Beaches, NSW</p>
+                    <!-- Google Maps Embed -->
+                    <div class="mt-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212992.1337620033!2d151.12533625000002!3d-33.6949483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b1d6a4b6a7c7%3A0x5017d681632ad0!2sNorthern%20Beaches%2C%20NSW%2C%20Australia!5e0!3m2!1sen!2sus!4v1697051234567!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
                 <div class="md:w-1/2">
                     <form id="contact-form" class="space-y-4">
                         <div>
                             <label for="name" class="block text-sm font-medium">Name</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 text-black" required>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--accent-teal)] focus:ring-[var(--accent-teal)] text-black" required>
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium">Email</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 text-black" required>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--accent-teal)] focus:ring-[var(--accent-teal)] text-black" required>
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium">Message</label>
-                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 text-black" required></textarea>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--accent-teal)] focus:ring-[var(--accent-teal)] text-black" required></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 focus:ring-4 focus:ring-green-500">Send Message</button>
+                        <button type="submit" class="w-full bg-[var(--secondary-beige)] text-[var(--primary-teal)] px-4 py-2 rounded-md hover:bg-[var(--accent-teal)] hover:text-white focus:ring-4 focus:ring-[var(--accent-teal)]">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -308,13 +398,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-[var(--bg-darkslate)] text-white py-6">
         <div class="container mx-auto px-6 text-center">
             <p>© 2025 Twisted Landscapes. All rights reserved.</p>
             <div class="mt-4 flex justify-center space-x-4">
-                <a href="#" class="hover:text-green-300" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-green-300" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-green-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-[var(--accent-teal)]" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-[var(--accent-teal)]" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-[var(--accent-teal)]" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
@@ -329,6 +419,14 @@
 
     <!-- JavaScript -->
     <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 1000);
+        });
+
         // Smooth scrolling with offset for sticky header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -362,7 +460,7 @@
             const message = document.getElementById('message').value;
 
             if (name && email && message) {
-                alert('Thank you for your message! We will get back to you soon.');
+                alert('Thank you for your message, Sean will get back to you soon.');
                 this.reset();
             } else {
                 alert('Please fill out all fields.');
@@ -403,8 +501,8 @@
             // Handle broken images
             const imgElement = img.querySelector('img');
             imgElement.addEventListener('error', () => {
-                imgElement.src = 'https://images.unsplash.com/photo-1590421604362-04b593d77090?auto=format&fit=crop&w=800&q=80';
-                imgElement.alt = 'Fallback Australian landscape image';
+                imgElement.src = 'https://images.unsplash.com/photo-1600585153490-416c8e4b7b8d?auto=format&fit=crop&w=800&q=80';
+                imgElement.alt = 'Fallback Northern Beaches garden image';
             });
         });
 

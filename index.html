@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Twisted Landscapes - Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
   <meta name="keywords" content="Northern Beaches landscaping, sustainable gardens, eco-friendly landscaping, Twisted Landscapes, Sydney">
   <meta property="og:title" content="Twisted Landscapes | Northern Beaches Sustainable Landscaping">
@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://thachozanjuan.github.io/TwistedLandScape/">
   <meta name="twitter:card" content="summary_large_image">
   <title>Twisted Landscapes | Northern Beaches Sustainable Landscaping</title>
-  <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="path/to/favicon.ico" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com/3.4.1"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
@@ -22,80 +22,10 @@
       --bg-offwhite: #F5F5F5;
       --bg-darkslate: #2D3748;
     }
-    .gallery-img {
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .gallery-img:hover {
-      transform: scale(1.05);
-    }
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-    }
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: white;
-      font-size: 40px;
-      cursor: pointer;
-      padding: 10px;
-    }
-    .lightbox-prev { left: 20px; }
-    .lightbox-next { right: 20px; }
-    .mobile-menu { display: none; }
-    @media (max-width: 768px) {
-      .desktop-menu { display: none; }
-      .mobile-menu { display: block; }
-      .mobile-menu ul {
-        display: none;
-        flex-direction: column;
-        background: var(--primary-teal);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 1rem;
-      }
-      .mobile-menu ul.active {
-        display: flex;
-      }
-    }
     .preloader {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: var(--primary-teal);
       display: flex;
       justify-content: center;
@@ -119,98 +49,56 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    @media (min-width: 768px) {
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .service-card {
-      background: rgba(255, 255, 255, 0.8);
-      border: 2px solid #9B59B6;
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
   </style>
 </head>
 <body class="bg-[var(--bg-offwhite)] font-sans">
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-spinner"></div>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-spinner"></div>
+</div>
+
+<!-- HERO SECTION -->
+<section id="home" class="relative bg-cover bg-center h-screen text-white flex items-center">
+  <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+       onerror="this.onerror=null; this.src='images/hero.jpg'"
+       alt="Lush Northern Beaches garden with native plants"
+       class="absolute inset-0 w-full h-full object-cover">
+  <div class="container mx-auto px-6 text-center fade-in relative z-10">
+    <h1 class="text-5xl font-bold mb-4">Landscaping That Makes a Statement</h1>
+    <p class="text-xl mb-6">From Manly to Marrickville, we craft bold, sustainable outdoor spaces that thrive in Sydney’s climate.</p>
+    <div class="space-x-4">
+      <a href="#contact" class="bg-[var(--secondary-beige)] text-[var(--primary-teal)] px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:text-white">Book Your Free Quote</a>
+      <a href="#portfolio" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-[var(--accent-teal)]">See Our Work</a>
+    </div>
   </div>
+</section>
 
-  <!-- Header -->
-  <header class="bg-[var(--primary-teal)] text-white sticky top-0 z-50 shadow-md">
-    <nav class="container mx-auto flex items-center justify-between py-4 px-6">
-      <div class="text-2xl font-bold">Twisted Landscapes</div>
-      <div class="desktop-menu">
-        <ul class="flex space-x-6">
-          <li><a href="#home" class="hover:text-[var(--accent-teal)]">Home</a></li>
-          <li><a href="#about" class="hover:text-[var(--accent-teal)]">About</a></li>
-          <li><a href="#services" class="hover:text-[var(--accent-teal)]">Services</a></li>
-          <li><a href="#portfolio" class="hover:text-[var(--accent-teal)]">Portfolio</a></li>
-          <li><a href="#testimonials" class="hover:text-[var(--accent-teal)]">Testimonials</a></li>
-          <li><a href="#blog" class="hover:text-[var(--accent-teal)]">Blog</a></li>
-          <li><a href="#contact" class="hover:text-[var(--accent-teal)]">Contact</a></li>
-        </ul>
+<!-- ABOUT SECTION -->
+<section id="about" class="py-16 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">More Than Landscapers – We’re Outdoor Designers</h2>
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-6 md:mb-0">
+        <img src="images/about_team.jpg" alt="Landscaping team shaping a Manly garden" class="rounded-lg shadow-md" loading="lazy">
       </div>
-      <div class="mobile-menu">
-        <button id="mobile-menu-toggle" class="text-2xl focus:outline-none">
-          <i class="fas fa-bars"></i>
-        </button>
-        <ul id="mobile-menu-list">
-          <li><a href="#home" class="block py-2 hover:text-[var(--accent-teal)]">Home</a></li>
-          <li><a href="#about" class="block py-2 hover:text-[var(--accent-teal)]">About</a></li>
-          <li><a href="#services" class="block py-2 hover:text-[var(--accent-teal)]">Services</a></li>
-          <li><a href="#portfolio" class="block py-2 hover:text-[var(--accent-teal)]">Portfolio</a></li>
-          <li><a href="#testimonials" class="block py-2 hover:text-[var(--accent-teal)]">Testimonials</a></li>
-          <li><a href="#blog" class="block py-2 hover:text-[var(--accent-teal)]">Blog</a></li>
-          <li><a href="#contact" class="block py-2 hover:text-[var(--accent-teal)]">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- HERO SECTION (UPDATED) -->
-  <section id="home" class="relative bg-cover bg-center h-screen text-white flex items-center">
-    <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-         onerror="this.onerror=null; this.src='images/hero.jpg'"
-         alt="Lush Northern Beaches garden with native plants"
-         class="absolute inset-0 w-full h-full object-cover">
-    <div class="container mx-auto px-6 text-center fade-in relative z-10">
-      <h1 class="text-5xl font-bold mb-4">Landscaping That Makes a Statement</h1>
-      <p class="text-xl mb-6">From Manly to Marrickville, we craft bold, sustainable outdoor spaces that thrive in Sydney’s climate.</p>
-      <div class="space-x-4">
-        <a href="#contact" class="bg-[var(--secondary-beige)] text-[var(--primary-teal)] px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:text-white focus:ring-4 focus:ring-[var(--accent-teal)]">Book Your Free Quote</a>
-        <a href="#portfolio" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:border-[var(--accent-teal)] focus:ring-4 focus:ring-[var(--accent-teal)]">See Our Work</a>
+      <div class="md:w-1/2 md:pl-8">
+        <p class="text-lg mb-4">Led by Sean Kellendonk, Twisted Landscapes is a Northern Beaches-based team that turns tired yards into stunning, sustainable outdoor spaces. We specialise in design-first landscaping that’s built to last and thrive in Sydney’s unique coastal climate.</p>
+        <p class="text-lg mb-4">From lush native gardens in Seaforth to low-maintenance terraces in Newtown, we deliver creative, practical landscapes that blend form and function — and we do it with heart, precision, and plenty of local knowledge.</p>
+        <p class="text-lg">Servicing the entire Sydney region — because good landscaping should never be limited by postcode.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ABOUT SECTION (UPDATED) -->
-  <section id="about" class="py-16 bg-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">More Than Landscapers – We’re Outdoor Designers</h2>
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-6 md:mb-0">
-          <img src="images/about_team.jpg" alt="Landscaping team shaping a Manly garden with native plants" class="rounded-lg shadow-md" loading="lazy">
-        </div>
-        <div class="md:w-1/2 md:pl-8">
-          <p class="text-lg mb-4">Led by Sean Kellendonk, Twisted Landscapes is a Northern Beaches-based team that turns tired yards into stunning, sustainable outdoor spaces. We specialise in design-first landscaping that’s built to last and thrive in Sydney’s unique coastal climate.</p>
-          <p class="text-lg mb-4">From lush native gardens in Seaforth to low-maintenance terraces in Newtown, we deliver creative, practical landscapes that blend form and function — and we do it with heart, precision, and plenty of local knowledge.</p>
-          <p class="text-lg">Servicing the entire Sydney region — because good landscaping should never be limited by postcode.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- (Your existing code continues from here: services, portfolio, testimonials, blog, contact, footer, lightbox, and scripts) -->
+<!-- JS to hide preloader -->
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+    }, 1000);
+  });
+</script>
+</body>
+</html>

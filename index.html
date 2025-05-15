@@ -1,558 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Twisted Landscapes - Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
-    <meta name="keywords" content="Northern Beaches landscaping, sustainable gardens, eco-friendly landscaping, Twisted Landscapes, Sydney">
-    <meta property="og:title" content="Twisted Landscapes | Northern Beaches Sustainable Landscaping">
-    <meta property="og:description" content="Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-    <meta property="og:url" content="https://thachozanjuan.github.io/TwistedLandScape/">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Twisted Landscapes | Northern Beaches Sustainable Landscaping</title>
-    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Structured Data for Local Business -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Twisted Landscapes",
-      "description": "Sustainable landscaping services in Sydney’s Northern Beaches.",
-      "telephone": "0412 606 907",
-      "email": "info@twistedlandscapes.com.au",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sydney",
-        "addressRegion": "NSW",
-        "addressCountry": "AU"
-      },
-      "url": "https://thachozanjuan.github.io/TwistedLandScape/"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Twisted Landscapes - Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
+  <meta name="keywords" content="Northern Beaches landscaping, sustainable gardens, eco-friendly landscaping, Twisted Landscapes, Sydney">
+  <meta property="og:title" content="Twisted Landscapes | Northern Beaches Sustainable Landscaping">
+  <meta property="og:description" content="Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+  <meta property="og:url" content="https://thachozanjuan.github.io/TwistedLandScape/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Twisted Landscapes | Northern Beaches Sustainable Landscaping</title>
+  <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary-teal: #1A4D5F;
+      --secondary-beige: #D9C2A6;
+      --accent-teal: #4DA8B8;
+      --bg-offwhite: #F5F5F5;
+      --bg-darkslate: #2D3748;
     }
-    </script>
-    <style>
-        /* Custom color variables */
-        :root {
-            --primary-teal: #1A4D5F;
-            --secondary-beige: #D9C2A6;
-            --accent-teal: #4DA8B8;
-            --bg-offwhite: #F5F5F5;
-            --bg-darkslate: #2D3748;
-        }
-        /* Custom styles for gallery, animations, and lightbox */
-        .gallery-img {
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .gallery-img:hover {
-            transform: scale(1.05);
-        }
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-        /* Lightbox styles */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            padding: 10px;
-        }
-        .lightbox-prev {
-            left: 20px;
-        }
-        .lightbox-next {
-            right: 20px;
-        }
-        /* Mobile menu */
-        .mobile-menu {
-            display: none;
-        }
-        @media (max-width: 768px) {
-            .desktop-menu {
-                display: none;
-            }
-            .mobile-menu {
-                display: block;
-            }
-            .mobile-menu ul {
-                display: none;
-                flex-direction: column;
-                background: var(--primary-teal);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                padding: 1rem;
-            }
-            .mobile-menu ul.active {
-                display: flex;
-            }
-        }
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-teal);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            transition: opacity 0.5s ease;
-        }
-        .preloader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .preloader-spinner {
-            border: 4px solid #fff;
-            border-top: 4px solid var(--secondary-beige);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        /* Services grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        .service-card {
-            background: rgba(255, 255, 255, 0.8);
-            border: 2px solid #9B59B6;
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-    </style>
+    .gallery-img {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      padding: 10px;
+    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+    .mobile-menu { display: none; }
+    @media (max-width: 768px) {
+      .desktop-menu { display: none; }
+      .mobile-menu { display: block; }
+      .mobile-menu ul {
+        display: none;
+        flex-direction: column;
+        background: var(--primary-teal);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+      }
+      .mobile-menu ul.active {
+        display: flex;
+      }
+    }
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-teal);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      transition: opacity 0.5s ease;
+    }
+    .preloader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .preloader-spinner {
+      border: 4px solid #fff;
+      border-top: 4px solid var(--secondary-beige);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .service-card {
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid #9B59B6;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
 </head>
 <body class="bg-[var(--bg-offwhite)] font-sans">
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-spinner"></div>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-[var(--primary-teal)] text-white sticky top-0 z-50 shadow-md">
+    <nav class="container mx-auto flex items-center justify-between py-4 px-6">
+      <div class="text-2xl font-bold">Twisted Landscapes</div>
+      <div class="desktop-menu">
+        <ul class="flex space-x-6">
+          <li><a href="#home" class="hover:text-[var(--accent-teal)]">Home</a></li>
+          <li><a href="#about" class="hover:text-[var(--accent-teal)]">About</a></li>
+          <li><a href="#services" class="hover:text-[var(--accent-teal)]">Services</a></li>
+          <li><a href="#portfolio" class="hover:text-[var(--accent-teal)]">Portfolio</a></li>
+          <li><a href="#testimonials" class="hover:text-[var(--accent-teal)]">Testimonials</a></li>
+          <li><a href="#blog" class="hover:text-[var(--accent-teal)]">Blog</a></li>
+          <li><a href="#contact" class="hover:text-[var(--accent-teal)]">Contact</a></li>
+        </ul>
+      </div>
+      <div class="mobile-menu">
+        <button id="mobile-menu-toggle" class="text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul id="mobile-menu-list">
+          <li><a href="#home" class="block py-2 hover:text-[var(--accent-teal)]">Home</a></li>
+          <li><a href="#about" class="block py-2 hover:text-[var(--accent-teal)]">About</a></li>
+          <li><a href="#services" class="block py-2 hover:text-[var(--accent-teal)]">Services</a></li>
+          <li><a href="#portfolio" class="block py-2 hover:text-[var(--accent-teal)]">Portfolio</a></li>
+          <li><a href="#testimonials" class="block py-2 hover:text-[var(--accent-teal)]">Testimonials</a></li>
+          <li><a href="#blog" class="block py-2 hover:text-[var(--accent-teal)]">Blog</a></li>
+          <li><a href="#contact" class="block py-2 hover:text-[var(--accent-teal)]">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION (UPDATED) -->
+  <section id="home" class="relative bg-cover bg-center h-screen text-white flex items-center">
+    <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+         onerror="this.onerror=null; this.src='images/hero.jpg'"
+         alt="Lush Northern Beaches garden with native plants"
+         class="absolute inset-0 w-full h-full object-cover">
+    <div class="container mx-auto px-6 text-center fade-in relative z-10">
+      <h1 class="text-5xl font-bold mb-4">Landscaping That Makes a Statement</h1>
+      <p class="text-xl mb-6">From Manly to Marrickville, we craft bold, sustainable outdoor spaces that thrive in Sydney’s climate.</p>
+      <div class="space-x-4">
+        <a href="#contact" class="bg-[var(--secondary-beige)] text-[var(--primary-teal)] px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:text-white focus:ring-4 focus:ring-[var(--accent-teal)]">Book Your Free Quote</a>
+        <a href="#portfolio" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:border-[var(--accent-teal)] focus:ring-4 focus:ring-[var(--accent-teal)]">See Our Work</a>
+      </div>
     </div>
+  </section>
 
-    <!-- Header -->
-    <header class="bg-[var(--primary-teal)] text-white sticky top-0 z-50 shadow-md">
-        <nav class="container mx-auto flex items-center justify-between py-4 px-6" role="navigation" aria-label="Main navigation">
-            <div class="text-2xl font-bold">Twisted Landscapes</div>
-            <div class="desktop-menu">
-                <ul class="flex space-x-6">
-                    <li><a href="#home" class="hover:text-[var(--accent-teal)]">Home</a></li>
-                    <li><a href="#about" class="hover:text-[var(--accent-teal)]">About</a></li>
-                    <li><a href="#services" class="hover:text-[var(--accent-teal)]">Services</a></li>
-                    <li><a href="#portfolio" class="hover:text-[var(--accent-teal)]">Portfolio</a></li>
-                    <li><a href="#testimonials" class="hover:text-[var(--accent-teal)]">Testimonials</a></li>
-                    <li><a href="#blog" class="hover:text-[var(--accent-teal)]">Blog</a></li>
-                    <li><a href="#contact" class="hover:text-[var(--accent-teal)]">Contact</a></li>
-                </ul>
-            </div>
-            <div class="mobile-menu">
-                <button id="mobile-menu-toggle" class="text-2xl focus:outline-none" aria-label="Toggle mobile menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul id="mobile-menu-list">
-                    <li><a href="#home" class="block py-2 hover:text-[var(--accent-teal)]">Home</a></li>
-                    <li><a href="#about" class="block py-2 hover:text-[var(--accent-teal)]">About</a></li>
-                    <li><a href="#services" class="block py-2 hover:text-[var(--accent-teal)]">Services</a></li>
-                    <li><a href="#portfolio" class="block py-2 hover:text-[var(--accent-teal)]">Portfolio</a></li>
-                    <li><a href="#testimonials" class="block py-2 hover:text-[var(--accent-teal)]">Testimonials</a></li>
-                    <li><a href="#blog" class="block py-2 hover:text-[var(--accent-teal)]">Blog</a></li>
-                    <li><a href="#contact" class="block py-2 hover:text-[var(--accent-teal)]">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative bg-cover bg-center h-screen text-white flex items-center">
-        <!-- Hero image with fallback -->
-        <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-             onerror="this.onerror=null; this.src='images/hero.jpg'" 
-             alt="Lush Northern Beaches garden with native plants" 
-             class="absolute inset-0 w-full h-full object-cover">
-        <div class="container mx-auto px-6 text-center fade-in relative z-10">
-            <h1 class="text-5xl font-bold mb-4">Twisted Landscapes</h1>
-            <p class="text-xl mb-6">Crafting Serenity, Naturally – Northern Beaches Style</p>
-            <div class="space-x-4">
-                <a href="#contact" class="bg-[var(--secondary-beige)] text-[var(--primary-teal)] px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:text-white focus:ring-4 focus:ring-[var(--accent-teal)]">Get a Free Quote</a>
-                <a href="#portfolio" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-[var(--accent-teal)] hover:border-[var(--accent-teal)] focus:ring-4 focus:ring-[var(--accent-teal)]">View Portfolio</a>
-            </div>
+  <!-- ABOUT SECTION (UPDATED) -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">More Than Landscapers – We’re Outdoor Designers</h2>
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-6 md:mb-0">
+          <img src="images/about_team.jpg" alt="Landscaping team shaping a Manly garden with native plants" class="rounded-lg shadow-md" loading="lazy">
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">About Twisted Landscapes</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-6 md:mb-0">
-                    <!-- Local image -->
-                    <img src="images/about_team.jpg" alt="Landscaping team shaping a Manly garden with native plants" class="rounded-lg shadow-md" loading="lazy">
-                </div>
-                <div class="md:w-1/2 md:pl-8">
-                    <p class="text-lg mb-4">Twisted Landscapes, led by Sean Kellendonk, is a Northern Beaches-based landscaping company dedicated to creating sustainable, beautiful outdoor spaces. Our team brings passion and expertise to every project, designing gardens that thrive in Sydney’s coastal climate.</p>
-                    <p class="text-lg">We specialize in eco-friendly solutions, from native plant gardens to low-maintenance hardscapes, serving homeowners and businesses across Manly, Seaforth, Narrabeen, and beyond. Let’s create your dream landscape!</p>
-                </div>
-            </div>
+        <div class="md:w-1/2 md:pl-8">
+          <p class="text-lg mb-4">Led by Sean Kellendonk, Twisted Landscapes is a Northern Beaches-based team that turns tired yards into stunning, sustainable outdoor spaces. We specialise in design-first landscaping that’s built to last and thrive in Sydney’s unique coastal climate.</p>
+          <p class="text-lg mb-4">From lush native gardens in Seaforth to low-maintenance terraces in Newtown, we deliver creative, practical landscapes that blend form and function — and we do it with heart, precision, and plenty of local knowledge.</p>
+          <p class="text-lg">Servicing the entire Sydney region — because good landscaping should never be limited by postcode.</p>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-[var(--bg-offwhite)]">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="images/lawn_mowing.jpg" alt="Lawn mowing service" class="w-full h-48 object-cover mb-2">
-                    <h3 class="text-xl font-semibold text-[#9B59B6]">Lawn Mowing</h3>
-                    <hr class="border-[#9B59B6] my-2">
-                </div>
-                <div class="service-card">
-                    <img src="images/weed_control.jpg" alt="Weed control service" class="w-full h-48 object-cover mb-2">
-                    <h3 class="text-xl font-semibold text-[#9B59B6]">Weed Control</h3>
-                    <hr class="border-[#9B59B6] my-2">
-                </div>
-                <div class="service-card">
-                    <img src="images/driveway_cleaning.jpg" alt="Driveway cleaning service" class="w-full h-48 object-cover mb-2">
-                    <h3 class="text-xl font-semibold text-[#9B59B6]">Driveway Cleaning</h3>
-                    <hr class="border-[#9B59B6] my-2">
-                </div>
-                <div class="service-card">
-                    <img src="images/hedge_trimming.jpg" alt="Hedge trimming service" class="w-full h-48 object-cover mb-2">
-                    <h3 class="text-xl font-semibold text-[#9B59B6]">Hedge Trimming</h3>
-                    <hr class="border-[#9B59B6] my-2">
-                </div>
-                <div class="service-card">
-                    <img src="images/retainer_wall.jpg" alt="Retainer wall installation service" class="w-full h-48 object-cover mb-2">
-                    <h3 class="text-xl font-semibold text-[#9B59B6]">Retainer Wall Installation</h3>
-                    <hr class="border-[#9B59B6] my-2">
-                </div>
-                <div class="service-card">
-                    <img src="images/decking.jpg" alt="Decking service" class="w-full h-48 object-cover mb-2">
-                    <h3 class="text-xl font-semibold text-[#9B59B6]">Decking Service</h3>
-                    <hr class="border-[#9B59B6] my-2">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">Our Portfolio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="images/manly_backyard.jpg">
-                    <img src="images/manly_backyard.jpg" alt="Manly backyard with sandstone paving and grass trees" class="w-full h-64 object-cover" loading="lazy">
-                    <div class="p-4 bg-[var(--bg-darkslate)] text-white">
-                        <h3 class="text-lg font-semibold">Manly Backyard</h3>
-                        <p>Before: A plain lawn. After: A sleek backyard with grass trees and sandstone paving for a Manly home.</p>
-                    </div>
-                </div>
-                <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="images/seaforth_garden.jpg">
-                    <img src="images/seaforth_garden.jpg" alt="Seaforth zen garden with recycled sleepers and native grasses" class="w-full h-64 object-cover" loading="lazy">
-                    <div class="p-4 bg-[var(--bg-darkslate)] text-white">
-                        <h3 class="text-lg font-semibold">Seaforth Zen Garden</h3>
-                        <p>Before: Overgrown yard. After: A modern zen garden with recycled sleepers and native grasses for a Seaforth home.</p>
-                    </div>
-                </div>
-                <div class="gallery-img rounded-lg overflow-hidden shadow-md" data-src="images/placeholder_garden.jpg">
-                    <img src="images/placeholder_garden.jpg" alt="Placeholder Northern Beaches garden" class="w-full h-64 object-cover" loading="lazy">
-                    <div class="p-4 bg-[var(--bg-darkslate)] text-white">
-                        <h3 class="text-lg font-semibold">Northern Beaches Project</h3>
-                        <p>Before: Untended space. After: A transformed garden showcasing Northern Beaches style.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-[var(--bg-offwhite)]">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">What Our Clients Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
-                    <p class="text-lg italic mb-4">"Sean and Twisted Landscapes created a stunning native garden for our home. Highly professional and eco-conscious!"</p>
-                    <p class="font-semibold">– Emma R., Manly</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
-                    <p class="text-lg italic mb-4">"Their team transformed our commercial property with a low-maintenance design. Exceptional service!"</p>
-                    <p class="font-semibold">– David K., Narrabeen</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[var(--primary-teal)]">Latest Insights</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-[var(--bg-offwhite)] p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Top 5 Sustainable Landscaping Trends for Northern Beaches</h3>
-                    <p class="mb-4">Explore eco-friendly designs thriving in Sydney’s coastal climate.</p>
-                    <a href="#blog" class="text-[var(--primary-teal)] hover:underline">Read More</a>
-                </div>
-                <div class="bg-[var(--bg-offwhite)] p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Choosing Native Plants for Your Garden</h3>
-                    <p class="mb-4">Tips for selecting drought-tolerant plants like kangaroo paw for Northern Beaches gardens.</p>
-                    <a href="#blog" class="text-[var(--primary-teal)] hover:underline">Read More</a>
-                </div>
-                <div class="bg-[var(--bg-offwhite)] p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Low-Maintenance Hardscaping Ideas</h3>
-                    <p class="mb-4">Create durable, beautiful outdoor spaces with sandstone and timber.</p>
-                    <a href="#blog" class="text-[var(--primary-teal)] hover:underline">Read More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-[var(--primary-teal)] text-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-6 md:mb-0">
-                    <p class="text-lg mb-4">Ready to create your dream outdoor space? Contact Sean Kellendonk at Twisted Landscapes for a free consultation in Sydney’s Northern Beaches!</p>
-                    <p><i class="fas fa-phone"></i> 0412 606 907</p>
-                    <p><i class="fas fa-envelope"></i> info@twistedlandscapes.com.au</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Northern Beaches, NSW</p>
-                    <!-- Google Maps Embed -->
-                    <div class="mt-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212992.1337620033!2d151.12533625000002!3d-33.6949483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b1d6a4b6a7c7%3A0x5017d681632ad0!2sNorthern%20Beaches%2C%20NSW%2C%20Australia!5e0!3m2!1sen!2sus!4v1697051234567!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <form id="contact-form" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium">Name</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--accent-teal)] focus:ring-[var(--accent-teal)] text-black" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium">Email</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--accent-teal)] focus:ring-[var(--accent-teal)] text-black" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium">Message</label>
-                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--accent-teal)] focus:ring-[var(--accent-teal)] text-black" required></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-[var(--secondary-beige)] text-[var(--primary-teal)] px-4 py-2 rounded-md hover:bg-[var(--accent-teal)] hover:text-white focus:ring-4 focus:ring-[var(--accent-teal)]">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[var(--bg-darkslate)] text-white py-6">
-        <div class="container mx-auto px-6 text-center">
-            <p>© 2025 Twisted Landscapes. All rights reserved.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                <a href="#" class="hover:text-[var(--accent-teal)]" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-[var(--accent-teal)]" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-[var(--accent-teal)]" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" role="dialog" aria-label="Image lightbox">
-        <span id="lightbox-close" class="lightbox-close" tabindex="0" aria-label="Close lightbox">×</span>
-        <span id="lightbox-prev" class="lightbox-nav lightbox-prev" tabindex="0" aria-label="Previous image"><i class="fas fa-chevron-left"></i></span>
-        <img id="lightbox-img" src="" alt="Lightbox Image">
-        <span id="lightbox-next" class="lightbox-nav lightbox-next" tabindex="0" aria-label="Next image"><i class="fas fa-chevron-right"></i></span>
+      </div>
     </div>
+  </section>
 
-    <!-- JavaScript -->
-    <script>
-        // Preloader
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-            }, 1000);
-        });
-
-        // Smooth scrolling with offset for sticky header
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenuList = document.getElementById('mobile-menu-list');
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenuList.classList.toggle('active');
-            mobileMenuToggle.querySelector('i').classList.toggle('fa-bars');
-            mobileMenuToggle.querySelector('i').classList.toggle('fa-times');
-        });
-
-        // Form submission (simulated)
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name && email && message) {
-                alert('Thank you for your message, Sean will get back to you soon.');
-                this.reset();
-            } else {
-                alert('Please fill out all fields.');
-            }
-        });
-
-        // Fade-in animation on scroll
-        const fadeIns = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = `${entry.target.dataset.delay || 0}s`;
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        fadeIns.forEach(el => observer.observe(el));
-
-        // Lightbox functionality
-        const galleryImages = document.querySelectorAll('.gallery-img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const lightboxPrev = document.getElementById('lightbox-prev');
-        const lightboxNext = document.getElementById('lightbox-next');
-        let currentImageIndex = 0;
-
-        galleryImages.forEach((img, index) => {
-            img.addEventListener('click', () => {
-                currentImageIndex = index;
-                lightboxImg.src = img.dataset.src;
-                lightboxImg.alt = img.querySelector('img').alt;
-                lightbox.style.display = 'flex';
-                lightboxClose.focus();
-            });
-
-            // Handle broken images
-            const imgElement = img.querySelector('img');
-            imgElement.addEventListener('error', () => {
-                imgElement.src = 'images/fallback.jpg';
-                imgElement.alt = 'Fallback Northern Beaches garden image';
-            });
-        });
-
-        lightboxClose.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
-        });
-
-        lightboxPrev.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-            lightboxImg.src = galleryImages[currentImageIndex].dataset.src;
-            lightboxImg.alt = galleryImages[currentImageIndex].querySelector('img').alt;
-        });
-
-        lightboxNext.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            lightboxImg.src = galleryImages[currentImageIndex].dataset.src;
-            lightboxImg.alt = galleryImages[currentImageIndex].querySelector('img').alt;
-        });
-
-        // Keyboard accessibility for lightbox
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.style.display === 'flex') {
-                if (e.key === 'Escape') {
-                    lightbox.style.display = 'none';
-                } else if (e.key === 'ArrowLeft') {
-                    lightboxPrev.click();
-                } else if (e.key === 'ArrowRight') {
-                    lightboxNext.click();
-                }
-            }
-        });
-
-        // Trap focus in lightbox
-        const focusableElements = lightbox.querySelectorAll('.lightbox-close, .lightbox-prev, .lightbox-next');
-        lightbox.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab' && lightbox.style.display === 'flex') {
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-                if (e.shiftKey && document.activeElement === firstElement) {
-                    e.preventDefault();
-                    lastElement.focus();
-                } else if (!e.shiftKey && document.activeElement === lastElement) {
-                    e.preventDefault();
-                    firstElement.focus();
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+<!-- (Your existing code continues from here: services, portfolio, testimonials, blog, contact, footer, lightbox, and scripts) -->

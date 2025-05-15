@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Twisted Landscapes - Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
-  <meta name="keywords" content="Northern Beaches landscaping, sustainable gardens, eco-friendly landscaping, Twisted Landscapes, Sydney">
-  <meta property="og:title" content="Twisted Landscapes | Northern Beaches Sustainable Landscaping">
-  <meta property="og:description" content="Sustainable landscaping services in Sydney’s Northern Beaches. Creative, eco-friendly outdoor solutions for residential and commercial clients.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-  <meta property="og:url" content="https://thachozanjuan.github.io/TwistedLandScape/">
+  <meta name="description" content="Twisted Landscapes - Sustainable landscaping services in Sydney’s Northern Beaches.">
+  <meta name="keywords" content="landscaping, Sydney, Northern Beaches, Twisted Landscapes">
+  <meta property="og:title" content="Twisted Landscapes | Sydney Landscaping Experts">
+  <meta property="og:description" content="Premium outdoor landscaping across Sydney. Northern Beaches to the Inner West.">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Twisted Landscapes | Northern Beaches Sustainable Landscaping</title>
-  <link rel="icon" href="path/to/favicon.ico" type="image/x-icon" />
+  <title>Twisted Landscapes | Sydney Landscaping</title>
   <script src="https://cdn.tailwindcss.com/3.4.1"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
@@ -30,7 +27,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 2000;
+      z-index: 9999;
       transition: opacity 0.5s ease;
     }
     .preloader.hidden {
@@ -62,7 +59,7 @@
 <section id="home" class="relative bg-cover bg-center h-screen text-white flex items-center">
   <img src="https://images.unsplash.com/photo-1580587771525-78b9f0f89f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
        onerror="this.onerror=null; this.src='images/hero.jpg'"
-       alt="Lush Northern Beaches garden with native plants"
+       alt="Sydney landscape background"
        class="absolute inset-0 w-full h-full object-cover">
   <div class="container mx-auto px-6 text-center fade-in relative z-10">
     <h1 class="text-5xl font-bold mb-4">Landscaping That Makes a Statement</h1>
@@ -91,13 +88,29 @@
   </div>
 </section>
 
+<!-- PLACEHOLDER SECTIONS TO ENSURE FULL PAGE LOAD -->
+<section id="services" class="py-12 text-center">
+  <h2 class="text-2xl font-bold text-[var(--primary-teal)]">[Services Section Coming Soon]</h2>
+</section>
+<section id="portfolio" class="py-12 text-center bg-gray-100">
+  <h2 class="text-2xl font-bold text-[var(--primary-teal)]">[Portfolio Section Coming Soon]</h2>
+</section>
+<section id="testimonials" class="py-12 text-center">
+  <h2 class="text-2xl font-bold text-[var(--primary-teal)]">[Testimonials Section Coming Soon]</h2>
+</section>
+<section id="contact" class="py-12 text-center bg-gray-100">
+  <h2 class="text-2xl font-bold text-[var(--primary-teal)]">[Contact Section Coming Soon]</h2>
+</section>
+
 <!-- JS to hide preloader -->
 <script>
   window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-      preloader.classList.add('hidden');
-    }, 1000);
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 1000);
+    }
   });
 </script>
 </body>
